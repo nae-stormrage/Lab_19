@@ -1,0 +1,82 @@
+﻿<Window x:Class="Lab_19.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab_19"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="400">
+
+    <Window.Resources>
+        <Style x:Key="style1">
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="true">
+                    <Setter Property="Control.Foreground" Value="Red" />
+                    <Setter Property="Control.Cursor" Value="Hand"/>
+                    <Setter Property="Control.RenderTransform">
+                        <Setter.Value>
+                            <RotateTransform Angle="20" CenterX="50" CenterY="25"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Shape.Fill">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="Bisque"/>
+                        <GradientStop Offset="0.5" Color="WhiteSmoke"/>
+                        <GradientStop Offset="1.5" Color="Purple"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Shape.Stroke" Value="Gainsboro"/>
+            <Setter Property="Shape.StrokeThickness" Value="10"/>
+        </Style>
+        <Style x:Key="style2">
+            <Setter Property="Shape.Fill" Value="DarkMagenta"/>
+            <Setter Property="Shape.Stroke" Value="Black"/>
+            <Setter Property="Shape.StrokeThickness" Value="20"/>
+        </Style>
+        <Style x:Key="style3">
+            <Setter Property="Shape.Fill" Value="GreenYellow"/>
+            <Setter Property="Shape.Stroke" Value="LemonChiffon"/>
+            <Setter Property="Shape.StrokeThickness" Value="7"/>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="true">
+                    <Setter Property="Control.Foreground" Value="Blue" />
+                    <Setter Property="Control.Cursor" Value="ArrowCD"/>
+                    <Setter Property="Control.RenderTransform">
+                        <Setter.Value>
+                            <RotateTransform Angle="275" CenterX="80" CenterY="26"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="style4">
+            <Setter Property="Shape.Fill" Value="DarkRed"/>
+            <Setter Property="Shape.Stroke" Value="Khaki"/>
+            <Setter Property="Shape.StrokeThickness" Value="9"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="FigureCount" ToolTip="Inter figere Count" Margin="5" Text="10"/>
+            <Button Grid.Column="1" Click="Button_Click">Generate Shapes</Button>
+        </Grid>
+
+        <Canvas Name ="MainCanvas" Grid.Row="1" Margin="5">
+            
+        </Canvas>
+    </Grid>
+</Window>
